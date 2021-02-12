@@ -16,10 +16,14 @@ const Skater = db.define('skater', {
     pictureUrl: Sequelize.STRING,
 });
 
+const Company = db.define('company', {
+    name: Sequelize.STRING,
+})
+
 
 //USING HOOKS...will run every time we insert a skater
 Skater.beforeSave((skater) => {
-    console.log("hook", skater)
+    // console.log("hook", skater)
     if (!skater.pictureUrl) {
         skater.pictureUrl = 'test_image'
     }
